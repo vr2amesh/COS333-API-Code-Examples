@@ -1,22 +1,22 @@
 public class Configs {
 
-    private String consumer_key;
-    private String consumer_secret;
-    private String access_token;
-    private String base_url;
-    private String course_courses;
-    private String course_terms;
-    private String dining_locations;
-    private String dining_events;
-    private String dining_menu;
-    private String places_open;
-    private String events_events;
-    private String refresh_token_url;
+    public String consumer_key;
+    public String consumer_secret;
+    public String access_token;
+    public String base_url;
+    public String course_courses;
+    public String course_terms;
+    public String dining_locations;
+    public String dining_events;
+    public String dining_menu;
+    public String places_open;
+    public String events_events;
+    public String refresh_token_url;
     
     public Configs() {
         this.consumer_key = "M8QxiCMNux9eIoINvQ96la7kbb0a";
         this.consumer_secret = "bG0jFnzEhdM3sfUlhBwRrZBpW6Ua";
-        this.access_token = "MzFkNjRhNzEtNTRiNS0zNDkyLThiNDUtMjg5ZGVlODRhMDI1OmNvczMzM19zcHIyMDIwQGNhcmJvbi5zdXBlcg";
+        this.access_token = "ZmFjNTdiN2UtY2VmYS0zZDRjLTgxZGYtOTk4MGNmM2MxZjE2OmNvczMzM19zcHIyMDIwQGNhcmJvbi5zdXBlcg==";
         this.base_url = "https://api.princeton.edu:443/mobile-app/1.0.0";
         this.course_courses = "/courses/courses";
         this.course_terms = "/courses/terms";
