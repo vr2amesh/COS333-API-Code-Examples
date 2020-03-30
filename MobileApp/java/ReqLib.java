@@ -14,6 +14,13 @@ public class ReqLib {
         this.configs = new Configs();
     }
 
+    private String updateConfigs(
+        String endpoint, 
+        HashMap<String, Object> params
+    ) {
+        return "Unauthorized Error";
+    }
+
     private String createParamString(HashMap<String, Object> params) {
         String params_string = "";
         if (params.size() > 0) {
@@ -27,7 +34,7 @@ public class ReqLib {
         return params_string;
     }
 
-    public String getJSON(
+    public String getRequest(
         String endpoint, 
         HashMap<String, Object> params
     ) throws MalformedURLException, IOException {
@@ -50,18 +57,21 @@ public class ReqLib {
 			}
 			in.close();
 
-			// print result
+			// return result
 			return response.toString();
+        } else if (responseCode == HttpsURLConnection.HTTP_UNAUTHORIZED) {
+            String response = updateConfigs(endpoint, params);
+            return response;
         } else {
-            return "Error";
-        } 
+            return "Some Bad Error Occurred";
+        }
     }
     public static void main(String[] args) {
         ReqLib reqLib = new ReqLib();
         try {
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put("fmt", "json");
-            String req = reqLib.getJSON("/courses/terms", params);
+            String req = reqLib.getRequest("/courses/terms", params);
             System.out.println(req);
         } catch(Exception e) {
             throw new RuntimeException();
