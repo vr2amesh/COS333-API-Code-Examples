@@ -9,16 +9,11 @@ import java.net.MalformedURLException;
 public class ReqLib {
 
     private Configs configs;
+    private final String FAILED_AUTH = "FAILED_AUTH";
+    private final String FAILED_REQUEST = "FAILED_REQUEST";
 
     public ReqLib() {
         this.configs = new Configs();
-    }
-
-    private String updateConfigs(
-        String endpoint, 
-        HashMap<String, Object> params
-    ) {
-        return "Unauthorized Error";
     }
 
     private String createParamString(HashMap<String, Object> params) {
@@ -34,7 +29,7 @@ public class ReqLib {
         return params_string;
     }
 
-    public String getRequest(
+    private String _makeReq(
         String endpoint, 
         HashMap<String, Object> params
     ) throws MalformedURLException, IOException {
@@ -58,12 +53,31 @@ public class ReqLib {
 			in.close();
 
 			// return result
-			return response.toString();
+            return response.toString();
         } else if (responseCode == HttpsURLConnection.HTTP_UNAUTHORIZED) {
-            String response = updateConfigs(endpoint, params);
+            return FAILED_AUTH;
+        } else {
+            return FAILED_REQUEST;
+        }
+    }
+
+    public String getRequest(
+        String endpoint, 
+        HashMap<String, Object> params
+    ) throws MalformedURLException, IOException, Exception {
+        String response = _makeReq(endpoint, params);
+        if (response == FAILED_AUTH) {
+            // Redo the request 
+            this.configs.updateAccessToken();
+            response = _makeReq(endpoint, params);
+        } else if (response == FAILED_REQUEST) {
+            throw new RuntimeException("Something went terribly wrong");
+        }
+
+        if (response != FAILED_AUTH && response != FAILED_REQUEST) {
             return response;
         } else {
-            return "Some Bad Error Occurred";
+            throw new RuntimeException("Something went terribly wrong");
         }
     }
     public static void main(String[] args) {
