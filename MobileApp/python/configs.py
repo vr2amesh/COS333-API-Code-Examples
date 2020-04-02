@@ -1,6 +1,6 @@
 CONSUMER_KEY="M8QxiCMNux9eIoINvQ96la7kbb0a"
 CONSUMER_SECRET="bG0jFnzEhdM3sfUlhBwRrZBpW6Ua"
-ACCESS_TOKEN="MThmMzUzOGUtODcxNS0zMWVjLThiOWQtMjhhMWE3NmFlZThmOmNvczMzM19zcHIyMDIwQGNhcmJvbi5zdXBlcg=="
+ACCESS_TOKEN="NzE1YzI4MTAtOThlMi0zNjg1LTkzMGMtYzA2MDcwY2JiNGIwOmNvczMzM19zcHIyMDIwQGNhcmJvbi5zdXBlcg=="
 BASE_URL="https://api.princeton.edu:443/mobile-app/1.0.0"
 COURSE_COURSES="/courses/courses"
 COURSE_TERMS="/courses/terms"

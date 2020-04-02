@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 
 public class ReqLib {
 
-    private Configs configs;
+    public Configs configs;
     private final String FAILED_AUTH = "FAILED_AUTH";
     private final String FAILED_REQUEST = "FAILED_REQUEST";
 
