@@ -44,12 +44,12 @@ public class ReqLib {
         int responseCode = httpsCon.getResponseCode();
         if (responseCode == HttpsURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(new InputStreamReader(httpsCon.getInputStream()));
-			String inputLine;
+			int inputChar;
 			StringBuffer response = new StringBuffer();
 
-			while ((inputLine = in.readLine()) != null) {
-				response.append(inputLine);
-			}
+			while ((inputChar = in.read()) != -1) {
+                response.append((char) inputChar);
+            }
 			in.close();
 
 			// return result

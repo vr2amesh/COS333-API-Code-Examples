@@ -1,6 +1,17 @@
 import java.util.HashMap;
 import java.time.LocalDate;
 
+/*
+prints each food item included in this menu
+Each food has the following parameters:
+            
+id
+name
+description
+link (url to menu item on Princeton website)
+icons (vegan, vegetarian, etc.)
+*/
+
 public class DiningMenus {
     public static void main(String[] args) {
         ReqLib reqLib = new ReqLib();
@@ -28,7 +39,7 @@ public class DiningMenus {
             String menu = reqLib.getRequest(endpoint, params);
             System.out.println(menu);
         } catch (Exception e) {
-            throw new RuntimeException("Something went terribly wrong");
+            throw new RuntimeException(e);
         }
     }
 }
