@@ -6,29 +6,6 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-
-/*
-You must first download the Simple JSON parser.
-Go to http://www.java2s.com/Code/Jar/j/Downloadjsonsimple11jar.htm
-
-and download the following zip file:
-
-json-simple/json-simple-1.1.jar.zip(14 k)
-
-Then, be sure to add this resulting jar file into your
-list of referenced libraries. So, in VSCode for example,
-go to the right window pane, go to Java Dependencies,
-go down to Referenced Libraries, and click the plus sign.
-Then, select the jar file that you just downloaded. Then,
-you should be set.
-
-Run the following command to add this jar file into your
-classpath.
-
-javac 
-
-*/
-
 public class Configs {
 
     public String consumer_key;
