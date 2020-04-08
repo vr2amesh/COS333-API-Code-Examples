@@ -2,9 +2,13 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import javax.json.JsonReader;
+import javax.json.Json;
+import javax.json.JsonObject;
 
 public class Configs {
 
@@ -22,11 +26,11 @@ public class Configs {
     public String refresh_token_url;
 
     private String extractAccessToken(String response) {
-        String ACCESS_TOKEN = "access_token\"";
-        int start_index = response.indexOf('"', response.indexOf(ACCESS_TOKEN) + ACCESS_TOKEN.length()) + 1;
-        int last_index = response.indexOf('"', start_index);
+        JsonReader reader = Json.createReader(new StringReader(response));
+        JsonObject json = reader.readObject();
+        reader.close();
 
-        return response.substring(start_index, last_index);
+        return json.getString("access_token");
     }
 
     public void updateAccessToken() throws Exception {
