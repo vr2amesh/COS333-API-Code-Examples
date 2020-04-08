@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+#-----------------------------------------------------------------------
+# run
+# Author: Bob Dondero
+#-----------------------------------------------------------------------
+
+if [ $# -lt 1 ]
+then
+   echo "Usage: $0 [files]"
+   exit 1
+fi
+
+cp=
+for jarfile in *.jar; do
+   cp=$cp:$jarfile
+done
+
+javac -cp $cp "$@"
