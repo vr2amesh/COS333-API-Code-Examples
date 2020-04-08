@@ -12,7 +12,7 @@ class ReqLib:
     '''
     This function allows a user to make a request to 
     a certain endpoint, with the BASE_URL of 
-    https://api.princeton.edu:443/active-directory/1.0.2
+    https://api.princeton.edu:443/princeton-info/1.0.0
 
     The parameters kwargs are keyword arguments. It
     symbolizes a variable number of arguments 
