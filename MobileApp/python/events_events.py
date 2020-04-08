@@ -1,5 +1,4 @@
-from configs import EVENTS_EVENTS
-from req_lib import getXMLorTXT
+from req_lib import ReqLib
 import datetime
 
 '''
@@ -18,6 +17,7 @@ YYYYMMDD
 '''
 
 if __name__ == "__main__":
+    req_lib = ReqLib()
     # Keep in mind that because "from" is a 
     # keyword in the python language, we 
     # can't put "from" as a parameter in 
@@ -41,8 +41,8 @@ if __name__ == "__main__":
     new_month = str(two_days_later.month).zfill(2)
     new_day = str(two_days_later.day).zfill(2)
 
-    req = getXMLorTXT(
-        EVENTS_EVENTS,
+    req = req_lib.getXMLorTXT(
+        req_lib.configs.EVENTS_EVENTS,
         kwargs={
             "from": year + month + day,
             "to": new_year + new_month + new_day,

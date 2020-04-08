@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-from configs import DINING_MENU
-from req_lib import getJSON
+from req_lib import ReqLib
 import datetime
 
 '''
 Parameters: locationID, menuID
 '''
 if __name__ == "__main__":
+    req_lib = ReqLib()
     # Get today's date
     today = datetime.datetime.today()
     year = str(today.year)
@@ -21,8 +21,8 @@ if __name__ == "__main__":
     # Let's choose Lunch
     meal = possible_meals[1]
 
-    menu = getJSON(
-        DINING_MENU, 
+    menu = req_lib.getJSON(
+        req_lib.configs.DINING_MENU, 
         locationID=2, 
         menuID= year + "-" + month + "-" + day + "-" + meal,
     )

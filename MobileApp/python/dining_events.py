@@ -1,5 +1,4 @@
-from configs import DINING_EVENTS
-from req_lib import getXMLorTXT
+from req_lib import ReqLib
 
 '''
 This endpoint on the MobileApp API returns 
@@ -15,8 +14,9 @@ to learn
 '''
 
 if __name__ == "__main__":
-    req = getXMLorTXT(
-        DINING_EVENTS,
+    req_lib = ReqLib()
+    req = req_lib.getXMLorTXT(
+        req_lib.configs.DINING_EVENTS,
         placeID=1,
     )
     print(req)

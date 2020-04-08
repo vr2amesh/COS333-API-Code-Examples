@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-from configs import PLACES_OPEN
-from req_lib import getJSON
+from req_lib import ReqLib
 
 if __name__ == "__main__":
-    open_places = getJSON(
-        PLACES_OPEN,
+    req_lib = ReqLib()
+    open_places = req_lib.getJSON(
+        req_lib.configs.PLACES_OPEN,
         fmt="json",
     )
     print(open_places)

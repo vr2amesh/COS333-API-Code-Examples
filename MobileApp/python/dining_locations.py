@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-from configs import DINING_LOCATIONS
-from req_lib import getXMLorTXT
+from req_lib import ReqLib
 
 '''
 This route does not return data back in a JSON
@@ -27,14 +26,15 @@ which ones may fit your application needs.
 Parameter: categoryID
 '''
 if __name__ == "__main__":
+    req_lib = ReqLib()
     # category 2 refers to all of the dining halls
     # on campus. A different number will return 
     # different types of  dining locations. For
     # example, category 3 returns all of the 
     # cafes on campus
     categoryID = 2
-    locations = getXMLorTXT(
-        DINING_LOCATIONS,
+    locations = req_lib.getXMLorTXT(
+        req_lib.configs.DINING_LOCATIONS,
         categoryID=categoryID,
     )
     print(locations)

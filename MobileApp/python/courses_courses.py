@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-from configs import COURSE_COURSES
-from req_lib import getJSON
+from req_lib import ReqLib
 
 '''
 This endpoint takes up to three parameters:
@@ -35,12 +34,13 @@ a course will be returned if EITHER it matches the
 subject parameter OR the search parameter.
 '''
 if __name__ == "__main__":
+    req_lib = ReqLib()
     spring_2020_term_code = "1204"
     subj = "COS"
 
     # Returns all courses in COS
-    term_info = getJSON(
-        COURSE_COURSES,
+    term_info = req_lib.getJSON(
+        req_lib.configs.COURSE_COURSES,
         # To return a json version of the return value
         fmt="json",
         term=spring_2020_term_code, 

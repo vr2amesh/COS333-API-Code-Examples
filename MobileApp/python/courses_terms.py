@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-from configs import COURSE_TERMS
-from req_lib import getJSON
+from req_lib import ReqLib
 
 if __name__ == "__main__":
-    term = getJSON(
-        COURSE_TERMS,
+    req_lib = ReqLib()
+    term = req_lib.getJSON(
+        req_lib.configs.COURSE_TERMS,
         # We want the results as a JSON
         # object, so this is necessary
         fmt="json",
