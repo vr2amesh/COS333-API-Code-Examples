@@ -1,0 +1,5 @@
+BASE_URL="https://data.artmuseum.princeton.edu"
+OBJECTS="/objects/"
+MAKERS="/makers/"
+PACKAGES="/packages/"
+SEARCH="/search"
