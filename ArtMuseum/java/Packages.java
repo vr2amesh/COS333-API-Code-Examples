@@ -7,37 +7,37 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 
 /*
-Prints information related to makers in
+Prints information related to packages in
 the Princeton University Art Museum's
 collection.
 */
 
-public class Makers {
+public class Packages {
     public static void main(String[] args) {
         try {
             ReqLib reqLib = new ReqLib();
-            String maker_name = "Pablo Picasso";
+            String package_name = "Chinese objects from December 2013 Asian Rotation";
 
-            FileInputStream stream = new FileInputStream("makers.json");
+            FileInputStream stream = new FileInputStream("packages.json");
             JsonReader jsonReader = Json.createReader(stream);
             JsonArray data = jsonReader.readArray();
             jsonReader.close();
             stream.close();
 
-            int maker_id = 0;
+            int pkg_id = 0;
             for (int i = 0; i < data.size(); i++) {
-                JsonObject m = data.getJsonObject(i);
-                if (!m.isNull("displayname") && m.getJsonString("displayname").getString().equals(maker_name)) {
-                    maker_id = m.getJsonNumber("ConstituentID").intValue();
+                JsonObject pkg = data.getJsonObject(i);
+                if (!pkg.isNull("packagenote") && pkg.getJsonString("packagenote").getString().equals(package_name)) {
+                    pkg_id = pkg.getJsonNumber("PackageId").intValue();
                     break;
                 }
             }
 
-            String endpoint = reqLib.configs.makers + maker_id;
+            String endpoint = reqLib.configs.packages + pkg_id;
             HashMap<String, Object> params = new HashMap<String, Object>();
 
-            String makers = reqLib.makeRequest(endpoint, params);
-            System.out.println(makers);
+            String packages = reqLib.makeRequest(endpoint, params);
+            System.out.println(packages);
         } catch (Exception e) {
             System.err.println(e);
         }
