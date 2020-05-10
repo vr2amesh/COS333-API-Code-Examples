@@ -65,8 +65,8 @@ public class Configs {
     }
 
     public Configs() {
-        this.consumer_key = "M8QxiCMNux9eIoINvQ96la7kbb0a";
-        this.consumer_secret = "bG0jFnzEhdM3sfUlhBwRrZBpW6Ua";
+        this.consumer_key = "KPYMe2FTDdpk9Lo3Q0FLWPWCjwsa";
+        this.consumer_secret = "ONBGvpgskS6EKutumvlTf_kh56Ua";
         this.base_url = "https://api.princeton.edu:443/active-directory/1.0.2";
         this.users = "/users";
         this.users_basic = "/users/basic";
