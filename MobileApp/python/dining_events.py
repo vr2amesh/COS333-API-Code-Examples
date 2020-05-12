@@ -10,7 +10,8 @@ Parameter: placeID
 
 
 Experiment with different placeID values
-to learn
+to learn which placeID correspond to which
+places on campus
 '''
 
 if __name__ == "__main__":
