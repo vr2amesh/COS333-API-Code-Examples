@@ -70,7 +70,7 @@ public class Configs {
     public Configs() {
         this.consumer_key = "KPYMe2FTDdpk9Lo3Q0FLWPWCjwsa";
         this.consumer_secret = "ONBGvpgskS6EKutumvlTf_kh56Ua";
-        this.base_url = "https://api.princeton.edu:443/mobile-app/1.0.0";
+        this.base_url = "https://api.princeton.edu:443/mobile-app";
         this.course_courses = "/courses/courses";
         this.course_terms = "/courses/terms";
         this.dining_locations = "/dining/locations";
